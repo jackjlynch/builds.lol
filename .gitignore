@@ -107,3 +107,6 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# config file containing secret key
+dev.cfg
