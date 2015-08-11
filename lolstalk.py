@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import render_template
 from riotwatcher.riotwatcher import RiotWatcher
 
 app = Flask(__name__)
@@ -11,7 +12,9 @@ def hello_world():
 
 @app.route('/userinfo/<username>')
 def user_info(username):
-    return str(riot_api.get_summoner(name=username)['id'])
+    game = riot_api.get_current_game(riot_api.get_summoner(name=username)['id'])
+    return render_template('gameinfo.html', participants=game['participants'])
+    # return str(game['participants'][0])
 
 
 if __name__ == '__main__':
