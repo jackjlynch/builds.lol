@@ -5,8 +5,8 @@
     <title></title>
 </head>
 <body>
-{% for participant in participants %}
-    <p>{{ participant.summonerName }}</p>
+{% for id, attrs in items.items() %}
+    <p>{{ attrs.name }}</p>
 {%  endfor %}
 </body>
 </html>
