@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <title>Items</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/items.css" rel="stylesheet">
 </head>
 <body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <div class="container">
     <div class="row">
@@ -17,7 +20,7 @@
                         </div>
                         <div class="row">
                     {% endif %}
-                    <div class="col-md-2">
+                    <div class="col-md-2" id="item-{{ id }}" data-toggle="tooltip" data-html="true" title="{{ attrs.description }}" data-trigger="hover" data-placement="bottom">
                         {#                {{ attrs.name }}#}
                         <img src="{{ dd_url }}/img/item/{{ id }}.png">
                     </div>
@@ -26,5 +29,6 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="static/items.js"></script>
 </body>
 </html>
