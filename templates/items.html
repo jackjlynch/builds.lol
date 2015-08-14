@@ -10,18 +10,13 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/interact.js/1.2.4/interact.min.js"></script>
 <div class="container">
     <div class="row">
         <div class="col-md-6">placeholder</div>
         <div class="col-md-6">
-            <div class="row">
                 {% for id, attrs in items.items() %}
-                    {% if (loop.index  % 6 - 1) == 0 and not loop.first %}
-                        </div>
-                        <div class="row">
-                    {% endif %}
-                    <div class="col-md-2" id="item-{{ id }}" data-toggle="tooltip" data-html="true" title="{{ attrs.description }}" data-trigger="hover" data-placement="bottom">
-                        {#                {{ attrs.name }}#}
+                    <div class="draggable" id="item-{{ id }}" data-toggle="tooltip" data-html="true" title="{{ attrs.description }}" data-trigger="hover" data-placement="bottom">
                         <img src="{{ dd_url }}/img/item/{{ id }}.png">
                     </div>
                 {%  endfor %}
