@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 riot_api = None
 items = None
+dd_urls = {}
 
 @app.route('/')
 def index():
@@ -13,7 +14,7 @@ def index():
 
 @app.route('/items')
 def items():
-    return render_template('items.html', items=items['data'])
+    return render_template('items.html', items=items['data'], dd_url=dd_urls['na'])
 
 @app.route('/userinfo/<username>')
 def user_info(username):
@@ -25,4 +26,8 @@ if __name__ == '__main__':
     app.config.from_pyfile('dev.cfg')
     riot_api = RiotWatcher(app.config['API_KEY'])
     items = riot_api.static_get_item_list()
+
+    for region in ['br', 'eune', 'euw', 'kr', 'lan', 'las', 'na', 'oce', 'ru', 'tr']:
+        data = riot_api.static_get_realm(region)
+        dd_urls[region] = data['cdn'] + '/' + data['v']
     app.run()
