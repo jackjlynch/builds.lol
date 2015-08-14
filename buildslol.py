@@ -8,10 +8,6 @@ riot_api = None
 items = None
 dd_urls = {}
 
-@app.route('/')
-def index():
-    return app.send_static_file('index.html')
-
 @app.route('/items')
 def items():
     return render_template('items.html', items=items['data'], dd_url=dd_urls['na'])
