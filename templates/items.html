@@ -14,10 +14,17 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">placeholder</div>
-        <div class="col-md-6">
+        <div class="col-md-6" style="overflow-y:scroll; max-height:95vh; overflow-x:visible">
+            <div class="row">
                 {% for id, attrs in items.items() %}
-                    <div class="draggable" id="item-{{ id }}" data-toggle="tooltip" data-html="true" title="{{ attrs.description }}" data-trigger="hover" data-placement="bottom">
-                        <img src="{{ dd_url }}/img/item/{{ id }}.png">
+                    {% if (loop.index  % 6 - 1) == 0 and not loop.first %}
+                        </div>
+                        <div class="row">
+                    {% endif %}
+                    <div class="col-md-2">
+                        <div class="draggable" id="item-{{ id }}" data-toggle="tooltip" data-html="true" title="<b>{{ attrs.name }}</b><br/>{{ attrs.description }}" data-trigger="hover" data-placement="bottom">
+                            <img class="item_image" src="{{ dd_url }}/img/item/{{ id }}.png">
+                        </div>
                     </div>
                 {%  endfor %}
                 </div>

@@ -1,10 +1,12 @@
 .row > div {
-    margin-top:10px;
+    margin-top: 10px;
     padding: 20px;
-    outline: 2px solid #ccc;
-    outline-offset: -10px;
-    -moz-outline-radius: 10px;
-    -webkit-outline-radius: 10px;
+    /*outline: 2px solid #ccc;*/
+    /*outline-offset: -10px;*/
+    /*-moz-outline-radius: 10px;*/
+    /*-webkit-outline-radius: 10px;*/
+
+    background-color: aqua;
 }
 
 unique {
@@ -12,17 +14,23 @@ unique {
 }
 
 .draggable {
-    width: 25%;
-    height: 100%;
-    min-height: 6.5em;
-    margin: 10%;
+    width: 72px;
+    height: 72px;
+    /*min-height: 6.5em;*/
+    /*margin: 10%;*/
 
-    background-color: #29e;
+    background-color: #4A4A7E;
     color: white;
 
     border-radius: 0.75em;
-    padding: 4%;
+    padding: 2%;
 
     -webkit-transform: translate(0px, 0px);
     transform: translate(0px, 0px);
+}
+
+.item_image {
+    margin: auto;
+    width: 64px;
+    /*padding: 5px;*/
 }
