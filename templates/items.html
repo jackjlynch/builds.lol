@@ -12,9 +12,9 @@
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/interact.js/1.2.4/interact.min.js"></script>
 <div class="container">
-    <div class="row">
-        <div class="col-md-6">placeholder</div>
-        <div class="col-md-6" style="overflow-y:scroll; max-height:95vh; overflow-x:visible">
+    <div class="row" id="item_bounds">
+        <div class="col-md-6" id="item_build">placeholder</div>
+        <div class="col-md-6" id="item_box" style="overflow-y:scroll; max-height:95vh; overflow-x:visible">
             <div class="row">
                 {% for id, attrs in items.items() %}
                     {% if (loop.index  % 6 - 1) == 0 and not loop.first %}
@@ -22,7 +22,7 @@
                         <div class="row">
                     {% endif %}
                     <div class="col-md-2">
-                        <div class="draggable" id="item-{{ id }}" data-toggle="tooltip" data-html="true" title="<b>{{ attrs.name }}</b><br/>{{ attrs.description }}" data-trigger="hover" data-placement="bottom">
+                        <div class="item" onclick="createDraggable(this)" id="item-{{ id }}" data-toggle="tooltip" data-html="true" title="<b>{{ attrs.name }}</b><br/>{{ attrs.description }}" data-trigger="hover" data-placement="bottom">
                             <img class="item_image" src="{{ dd_url }}/img/item/{{ id }}.png">
                         </div>
                     </div>

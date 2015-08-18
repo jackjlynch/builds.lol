@@ -2,7 +2,7 @@
  * Created by Jack on 8/12/2015.
  */
 
-$('[data-toggle="tooltip"]').tooltip();
+$('[data-toggle="tooltip"]').tooltip({show:{delay:5000}});
 
 // target elements with the "draggable" class
 interact('.draggable')
@@ -11,7 +11,7 @@ interact('.draggable')
         inertia: true,
         // keep the element within the area of it's parent
         restrict: {
-            restriction: ".container",
+            restriction: "#item_bounds",
             endOnly: true,
             elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
         },
@@ -46,3 +46,12 @@ function dragMoveListener (event) {
 }
 // this is used later in the resizing demo
 window.dragMoveListener = dragMoveListener;
+
+
+function createDraggable(element) {
+    var draggable = $(element).clone();
+    draggable.addClass("draggable");
+    draggable.removeAttr("onclick");
+    draggable.position({my: "center", at: "center", of: $(element).id, collision: "none"});
+    $(element).after(draggable);
+}

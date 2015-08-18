@@ -6,7 +6,15 @@
     /*-moz-outline-radius: 10px;*/
     /*-webkit-outline-radius: 10px;*/
 
-    background-color: aqua;
+    /*background-color: aqua;*/
+}
+
+#item_box {
+    background-color: mediumpurple;
+}
+
+#item_build {
+    background-color: transparent;
 }
 
 unique {
@@ -14,6 +22,13 @@ unique {
 }
 
 .draggable {
+    margin-top: -72px;
+
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+}
+
+.item {
     width: 72px;
     height: 72px;
     /*min-height: 6.5em;*/
@@ -25,12 +40,19 @@ unique {
     border-radius: 0.75em;
     padding: 2%;
 
-    -webkit-transform: translate(0px, 0px);
-    transform: translate(0px, 0px);
 }
 
 .item_image {
     margin: 3px;
     width: 64px;
     /*padding: 5px;*/
+}
+
+body{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
